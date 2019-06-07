@@ -1,37 +1,39 @@
 /* Build a basic ES6 Class */
 
-class WaterBottle{
-    constructor(volume, carbonated, type, brand, fillPercentage) {
-        this.volume = volume
-        this.carbonated = carbonated
-        this.type = type
-        this.brand = brand
-        this.fillPercentage = fillPercentage
+function Thermos(look, materials, cap, volume) {
+    this.look = look
+    this.materials = materials
+    this.cap = cap
+    this.volume = volume
+    this.fillPercentage = 0
+    this.refill = function (amountInPercentage) {
+        return this.fillPercentage += amountInPercentage
+    }
+    this.drink = function (amountInPercentage) {
+        return this.fillPercentage -= amountInPercentage
     }
 }
 
-/* Adding Setters and Getters */
-class WaterBottle {
-    constructor(volume, carbonated, type, brand, fillPercentage) {
+class Thermos{
+    constructor(look, materials, cap, volume) {
+        this.look = look
+        this.materials = materials
+        this.cap = cap
         this.volume = volume
-        this.carbonated = carbonated
-        this.type = type
-        this.brand = brand
-        this.fillPercentage = fillPercentage
-    }
-
-    set refill(amount) {
-        this.fillPercentage += amount
-    }
-
-    get waterRemaining(){
-        return `There's ${this.fillPercentage} remaining`
+        this.fillPercentage = 0
+        this.refill = function (amountInPercentage) {
+            return this.fillPercentage += amountInPercentage
+        }
+        this.drink = function (amountInPercentage) {
+            return this.fillPercentage -= amountInPercentage
+        }
     }
 }
+
+let delaneysJudgeyThermos = new Thermos()
+/* Adding Setters (of Katan) and Getters */
+
+
+
 /* Extending */
 
-class VirgilesBottles extends WaterBottle {
-    constructor(volume, carbonated, type, brand, fillPercentage, color){
-        super()
-    }
-}

@@ -1,47 +1,43 @@
 /* Object with properties */
-
-    let waterBottle = {
-        volume: 300,
-        carbonated: false,
-        type: 'glass',
-        brand: 'Rise',
-        fillPercentage:50
+    let joshsThermos = {
+        look: 'oldschool',
+        materials: ['stainless', 'plastic'],
+        cap: 'flipcap',
+        volume: 300
     }
 
 /* Object with properties and methods */
 
-    let anotherWaterBottle = {
-        volume: 1000,
-        carbonated: true,
-        type: 'plastic',
-        brand: 'Nestlé',
-        fillPercentage: 70,
-
-        refill(amount){
-            this.fillPercentage += amount
-        }
+    let stephsThermos = {
+        look: 'modern & pwetty',
+        materials: ['stainless'],
+        cap: 'twist',
+        volume: 250,
+        fillPercentage:0,
+        refill: function(amountInPercentage){
+            return this.fillPercentage += amountInPercentage
+        }    
     }
+
 
 /* Adding methods to an object */
 
-    anotherWaterBottle.drink = function (amount) {
-        this.fillPercentage -= amount
-    }
+stephsThermos.drink = function (amountInPercentage) {
+    return this.fillPercentage -= amountInPercentage
+}  
 
 /* Object constructors */
 
-function WaterBottle(volume, carbonated, type, brand, fillPercentage) {
+function Thermos(look, materials, cap, volume){
+    this.look = look
+    this.materials = materials
+    this.cap = cap
     this.volume = volume
-    this.carbonated = carbonated
-    this.type = type
-    this.brand = brand
-    this.fillPercentage = fillPercentage
-
-    this.refill = function (amount) {
-        this.fillPercentage += amount
+    this.fillPercentage = 0
+    this.refill = function(amountInPercentage) {
+        return this.fillPercentage += amountInPercentage
     }
-
-    this.drink = function (amount) {
-        this.fillPercentage -= amount
-    }
+    this.drink = function (amountInPercentage) {
+        return this.fillPercentage -= amountInPercentage
+    }  
 }
